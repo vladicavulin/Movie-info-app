@@ -1,12 +1,12 @@
 $(document).ready(() => {
 $('#searchForm').on('submit', (event) => {
 let searchText = $('#searchText').val(); 
-getMovie(searchText);   
+getMovies(searchText);   
 event.preventDefault();
 });
 });
 
-function getMovie(searchText) {
+function getMovies(searchText) {
    axios.get('http://www.omdbapi.com?s='+ searchText +'&apikey=ffecf8fa')
 .then((response) => {
 console.log(response);
@@ -26,7 +26,7 @@ $.each(movies, (index, data) => {
     `;
 });
 
-$('movies').html(output);
+$('#movies').html(output);
 
 })
 .catch((error) => {
