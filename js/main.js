@@ -31,5 +31,24 @@ $('#movies').html(output);
 })
 .catch((error) => {
 console.log(error);
-})   
-};
+});
+}
+
+function movieSelected(id) {
+    sessionStorage.setItem('movieId', id);
+    window.location = 'movie.html';
+    return false;
+}
+
+function getMovie() {
+    let movieId = sessionStorage.getItem('movieId');
+
+    axios.get('http://www.omdbapi.com?i='+ movieId +'&apikey=ffecf8fa')
+    .then((response) => {
+    console.log(response);
+
+})
+.catch((error) => {
+console.log(error);
+});
+}
