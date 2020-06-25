@@ -14,10 +14,10 @@ let movies = response.data.Search;
 let output='';
 $.each(movies, (index, data) => {
     output += `
-    <div class="col-md-3 fire">
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
     <div class="well text-center">
     <img src="${data.Poster}">
-    <h5>${data.Title}</h5>
+    <h5 class="title">${data.Title}</h5>
     <a onclick="movieSelected('${data.imdbID}')"
        class="btn btn-primary"
        href="#"> Movie Details <a/>
@@ -55,7 +55,7 @@ function getMovie() {
     </div>
     <div class="col-md-8">
     <h2>${movie.Title}</h2>
-    <ul class="list-group">
+    <ul class="list-group movieList">
     <li class="list-group-item"> <strong> Genre: </strong> ${movie.Genre}<li>
     <li class="list-group-item"> <strong> Released: </strong> ${movie.Released}<li>
     <li class="list-group-item"> <strong> Rated: </strong> ${movie.Rated}<li>
@@ -71,8 +71,8 @@ function getMovie() {
     <h3>Plot</h3>
     ${movie.Plot}
     <hr>
-    <a href="http://imdb.com/title/${movie.imdbId}" target="_blank" class="btn btn-primary">View IMDB</a>
-    <a href="index.html" class="btn btn-default"> Go back to search </a>
+    <a href="http://imdb.com/title/${movie.imdbID}/" target="_blank" class="btn btn-primary">View IMDB</a>
+    <a href="index.html" class="btn btn-primary"> Go back to search </a>
     </div>
     </div>
 
